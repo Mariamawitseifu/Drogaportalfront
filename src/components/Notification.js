@@ -7,9 +7,7 @@ const Notification = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [hasNewNotifications, setHasNewNotifications] = useState(false);
 
-  useEffect(() => {
-    fetchNotifications();
-  }, []);
+
 
   const fetchNotifications = async () => {
     try {
@@ -54,6 +52,11 @@ const Notification = () => {
       console.error('Error marking notifications as read', err);
     }
   };
+
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
 
   const handlePopupClose = () => {
     markNotificationsAsRead(notifications);

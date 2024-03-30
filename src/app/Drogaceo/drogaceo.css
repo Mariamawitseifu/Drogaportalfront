@@ -1,0 +1,50 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
+   }
+   
+   .flex-item {
+    flex: 1 0 45%; /* This means that the item will take up 45% of the width of the container, and can shrink but not grow */
+    margin: 10px;
+   }
+   
+   /* Add media queries for different screen sizes */
+   @media (max-width: 600px) {
+    .flex-item {
+     flex: 1 0 100%; /* On small screens, each item takes up 100% of the width */
+    }
+   }
+   
+   @media (min-width: 601px) and (max-width: 1024px) {
+    .flex-item {
+     flex: 1 0 45%; /* On medium screens, each item takes up 45% of the width */
+    }
+   }
+   
+   @media (min-width: 1025px) {
+    .flex-item {
+     flex: 1 0 45%; /* On large screens, each item takes up 45% of the width */
+    }
+   }
+   .center-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Add this line */
+   }
+   
+   /* Responsive layout - makes a one column layout instead of a two-column layout */
+   @media (max-width: 800px) {
+    .center-component {
+    flex-direction: column; /* Add this line */
+    }
+   }
+   
+   @media (min-width: 801px) {
+    .center-component {
+    flex-direction: row; /* Add this line */
+    }
+   }
+      
