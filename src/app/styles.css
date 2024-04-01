@@ -1,0 +1,45 @@
+/* CSS for the card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the cards to wrap into multiple lines */
+    justify-content: center;
+    align-items: center;
+   }
+   
+   /* CSS for the card itself */
+   .card {
+    flex-basis: 100%; /* Full width on small screens */
+    flex-grow: 1; /* Grows to fill available space */
+    max-width: 400px; /* Maximum width for the card */
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+   }
+   
+   /* Responsive font size for the card title */
+   .card-title {
+    font-size: clamp(1.4em, 2.1vw, 2.1em);
+   }
+   
+   /* Responsive image styling */
+   .card-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center; /* Center the image within the container */
+   }
+   
+   /* Adjustments for mid-screen sizes */
+   @media (min-width: 768px) {
+    .card {
+       flex-basis: 45%; /* Adjusts the card width for mid-screen sizes */
+    }
+   }
+   
+   @media (min-width: 1024px) {
+    .card {
+       flex-basis: 30%; /* Further adjusts the card width for larger screens */
+    }
+   }
+   
