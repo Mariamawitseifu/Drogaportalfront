@@ -1,0 +1,22 @@
+  @keyframes slide-right_1s_ease-in-out {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide-right_1s_ease-in-out {
+    animation: slide-right_1s_ease-in-out 2s ease-in-out;
+  }
+  .new-notification-indicator {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+   }
+   

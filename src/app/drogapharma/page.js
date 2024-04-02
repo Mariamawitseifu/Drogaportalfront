@@ -140,9 +140,9 @@ export default function Drogapharma(){
 
 
     <div  className=" flex flex-row px-5 gap-3">
-    <div className="w-1/2 py-10 px-4">
-    <div className="flex items-center">
-    <div className=" flex flex-row">
+         <div className="w-1/2 py-10 px-4">
+     <div className="flex items-center">
+       <div className=" flex flex-row">
     <div>
     <Image src="/telephoned.png" height={50} width={50} alt='tele'>
     </Image> 

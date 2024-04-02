@@ -4,7 +4,7 @@ import Navbar from '@/components/NavBar';
 import Endfooter from '@/components/Endfooter';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-// import Test from '../test/page';
+import Test from '../test/page';
 import Cards from '@/components/Cards';
 // import Quicklinks from '../quicklinks/page';
 // import Filter from '@/components/Filter';
@@ -92,7 +92,7 @@ export default function Home({ title }) {
             Announcements and Blogs
           </h1>
         </div>
-        {/* <Test visiblePosts={[...visiblePosts].reverse()} /> */}
+        <Test visiblePosts={[...visiblePosts].reverse()} />
       </div>
       <div className="mt-4">
         <Footer />

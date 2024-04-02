@@ -1,20 +1,16 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { FiTrash2 } from 'react-icons/fi';
-import axios from 'axios';
+import axios from "axios";
 import Image from 'next/image';
 
 
-export default function Gallerychain() {
+export default function Galleryema() {
  const [selectedImage, setSelectedImage] = useState(null);
  const [images, setImages] = useState([]); // Initialize images as an empty array
  const [uploadedImage, setUploadedImage] = useState(null);
  const [selectedImages, setSelectedImages] = useState([]);
  const [title, setTitle] = useState('');
-
- const [postId, setPostId] = useState(null);
-
- const [role, setRole] = useState('');
  const [isDeleteClicked, setIsDeleteClicked] = useState(false);
 
  const deletePost = async (id) => {
@@ -23,7 +19,7 @@ export default function Gallerychain() {
   setIsDeleteClicked(true);
   if (confirmDelete) {
     try {
-      const response = await axios.delete(`http://127.0.0.1:8000/pictures/deletec/${id}`, {
+      const response = await axios.delete(`http://127.0.0.1:8000/pictures/deletee/${id}`, {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -31,7 +27,7 @@ export default function Gallerychain() {
  
       if (response.status === 204) {
         // Fetch the updated list of images from the server
-        const updatedImagesResponse = await axios.get('http://127.0.0.1:8000/pictures/imagesc/', {
+        const updatedImagesResponse = await axios.get('http://127.0.0.1:8000/pictures/imagese/', {
           headers: {
             'Authorization': `Token ${token}`,
           },
@@ -45,8 +41,6 @@ export default function Gallerychain() {
     }
   }
  }
- 
- 
  useEffect(() => {
   if (typeof window !== 'undefined') {
     const storedRole = window.localStorage.getItem('role');
@@ -73,7 +67,7 @@ export default function Gallerychain() {
   data.append('image', file);
   data.append('title', title); // append the title
  
-  fetch('http://127.0.0.1:8000/pictures/createc/', {
+  fetch('http://127.0.0.1:8000/pictures/createe/', {
     method: 'POST',
     headers: {
       'Authorization': `Token ${token}`,
@@ -93,7 +87,7 @@ export default function Gallerychain() {
       setTitle('');
  
       // Fetch the updated list of images
-      fetch('http://127.0.0.1:8000/pictures/imagesc/', {
+      fetch('http://127.0.0.1:8000/pictures/imagese/', {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -118,7 +112,7 @@ export default function Gallerychain() {
  };
  
  useEffect(() => {
-  fetch('http://127.0.0.1:8000/pictures/imagesc/', {
+  fetch('http://127.0.0.1:8000/pictures/imagese/', {
     method: 'GET',
     headers: {
       'Authorization': `Token ${token}`,
@@ -140,8 +134,8 @@ export default function Gallerychain() {
     .catch(error => {
       console.error('Error:', error);
     });
-}, [token]);
-// const [role, setRole] = useState('');
+}, []);
+const [role, setRole] = useState('');
 
 useEffect(() => {
  if (typeof window !== 'undefined') {
@@ -151,7 +145,8 @@ useEffect(() => {
    }
  }
 }, []);
-return<>
+ return (
+   <> 
    <div className="card py-6 px-16">
     <div className="relative">
     {role === "graphicsdesigner" || role === 'superadmin' ? (
@@ -187,7 +182,7 @@ return<>
     <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <div className="image-container" style={{ width: '100%', height: '200px', overflow:'hidden' }}>
-          <Image className="rounded-t-lg" src={`http://127.0.0.1:8000/media/${image.image}`} height={100} width={100} alt="" />
+          <Image className="rounded-t-lg" src={`http://127.0.0.1:8000/media/${image.image}`} alt="" />
         </div>
       </a>
       <div className="p-5">
@@ -207,4 +202,5 @@ return<>
   ))}
 </div>
  </>
+);
      }

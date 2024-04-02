@@ -5,16 +5,15 @@ import axios from 'axios';
 import Image from 'next/image';
 
 
-export default function Gallerychain() {
+export default function Gallerysomalia() {
  const [selectedImage, setSelectedImage] = useState(null);
  const [images, setImages] = useState([]); // Initialize images as an empty array
  const [uploadedImage, setUploadedImage] = useState(null);
  const [selectedImages, setSelectedImages] = useState([]);
  const [title, setTitle] = useState('');
-
  const [postId, setPostId] = useState(null);
 
- const [role, setRole] = useState('');
+//  const [role, setRole] = useState('');
  const [isDeleteClicked, setIsDeleteClicked] = useState(false);
 
  const deletePost = async (id) => {
@@ -23,7 +22,7 @@ export default function Gallerychain() {
   setIsDeleteClicked(true);
   if (confirmDelete) {
     try {
-      const response = await axios.delete(`http://127.0.0.1:8000/pictures/deletec/${id}`, {
+      const response = await axios.delete(`http://127.0.0.1:8000/pictures/deletes/${id}`, {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -31,7 +30,7 @@ export default function Gallerychain() {
  
       if (response.status === 204) {
         // Fetch the updated list of images from the server
-        const updatedImagesResponse = await axios.get('http://127.0.0.1:8000/pictures/imagesc/', {
+        const updatedImagesResponse = await axios.get('http://127.0.0.1:8000/pictures/imagess/', {
           headers: {
             'Authorization': `Token ${token}`,
           },
@@ -55,6 +54,7 @@ export default function Gallerychain() {
     }
   }
  }, []);
+
  let token;
  if (typeof localStorage !== 'undefined') {
   token = localStorage.getItem('token');
@@ -73,7 +73,7 @@ export default function Gallerychain() {
   data.append('image', file);
   data.append('title', title); // append the title
  
-  fetch('http://127.0.0.1:8000/pictures/createc/', {
+  fetch('http://127.0.0.1:8000/pictures/creates/', {
     method: 'POST',
     headers: {
       'Authorization': `Token ${token}`,
@@ -93,7 +93,7 @@ export default function Gallerychain() {
       setTitle('');
  
       // Fetch the updated list of images
-      fetch('http://127.0.0.1:8000/pictures/imagesc/', {
+      fetch('http://127.0.0.1:8000/pictures/imagess/', {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -118,7 +118,7 @@ export default function Gallerychain() {
  };
  
  useEffect(() => {
-  fetch('http://127.0.0.1:8000/pictures/imagesc/', {
+  fetch('http://127.0.0.1:8000/pictures/imagess/', {
     method: 'GET',
     headers: {
       'Authorization': `Token ${token}`,
@@ -140,8 +140,8 @@ export default function Gallerychain() {
     .catch(error => {
       console.error('Error:', error);
     });
-}, [token]);
-// const [role, setRole] = useState('');
+}, []);
+const [role, setRole] = useState('');
 
 useEffect(() => {
  if (typeof window !== 'undefined') {
@@ -151,7 +151,8 @@ useEffect(() => {
    }
  }
 }, []);
-return<>
+ return (
+   <>
    <div className="card py-6 px-16">
     <div className="relative">
     {role === "graphicsdesigner" || role === 'superadmin' ? (
@@ -187,7 +188,7 @@ return<>
     <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <div className="image-container" style={{ width: '100%', height: '200px', overflow:'hidden' }}>
-          <Image className="rounded-t-lg" src={`http://127.0.0.1:8000/media/${image.image}`} height={100} width={100} alt="" />
+          <Image className="rounded-t-lg" src={`http://127.0.0.1:8000/media/${image.image}`} alt="" />
         </div>
       </a>
       <div className="p-5">
@@ -196,6 +197,9 @@ return<>
           {image.title}
           </h5>
         </a>
+        {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+        </p> */}
       </div>
       <div className=" px-6 py-4" style={{ float: 'right'}}>
  {role === "graphicsdesigner" && <FiTrash2
@@ -207,4 +211,5 @@ return<>
   ))}
 </div>
  </>
+);
      }

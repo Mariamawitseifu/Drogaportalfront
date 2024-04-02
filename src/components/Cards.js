@@ -22,15 +22,15 @@ function Cards() {
   };
 
   const handleClick3 = () => {
-    router.push('/emaethiopia');
+    router.push('/drogaema');
   };
 
   const handleClick4 = () => {
-    router.push('/trustethio');
+    router.push('/drogatrust');
   };
 
   const handleClick5 = () => {
-    router.push('/drogapysio');
+    router.push('/drogapyshio');
   };
 
   const handleClick6 = () => {

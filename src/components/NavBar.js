@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import Quicklinks from './QuickLinks';
 import Filter from './Filter';
-import Circle from '@/app/Circle/page';
+import Circle from '@/app/circle/page';
 // import Quicklinks from '@/app/quicklinks/page.js';
 
 export default function Navbar() {

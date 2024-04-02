@@ -66,7 +66,7 @@ return(
       <div className="flex flex-row items-center justify-center">
       <Image src="/lock.png" alt="Lock icon" width={20} height={20} />
       <button className="hover:bg-dro_gray font-medium py-2 px-4" onClick={handleClickP}>
-      <Link legacyBehavior href="/Passwordchange">
+      <Link legacyBehavior href="/passwordchange">
       <a> Change Password</a>
       </Link>
       </button> 
