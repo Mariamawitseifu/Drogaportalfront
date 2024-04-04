@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
 import 'tailwindcss/tailwind.css';
 import { useState, useEffect ,useRef} from "react";
-import gallerysomalia from "../gallerysomalia/page";
+import Gallerysomalia from "../gallerysomalia/page";
 
 export default function Drogasomaliland(){
    const router = useRouter();

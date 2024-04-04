@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Popup from 'reactjs-popup';
 // import 'components/animation.css'
 const Notification = () => {
@@ -9,7 +9,7 @@ const Notification = () => {
 
 
 
-  const fetchNotifications = async () => {
+  const fetchNotifications = useCallback(async () => {
     try {
       let response = await fetch('http://127.0.0.1:8000/api1/notifications/');
       
@@ -33,7 +33,7 @@ const Notification = () => {
     } catch (err) {
       console.error('Error fetching notifications', err);
     }
-  };
+  }, []);
 
   const markNotificationsAsRead = async (data) => {
     try {
@@ -56,7 +56,7 @@ const Notification = () => {
 
   useEffect(() => {
     fetchNotifications();
-  }, []);
+  }, [fetchNotifications3]);
 
   const handlePopupClose = () => {
     markNotificationsAsRead(notifications);

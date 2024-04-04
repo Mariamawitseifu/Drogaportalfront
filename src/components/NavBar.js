@@ -9,7 +9,6 @@ import axios from "axios";
 import Quicklinks from './QuickLinks';
 import Filter from './Filter';
 import Circle from '@/app/circle/page';
-// import Quicklinks from '@/app/quicklinks/page.js';
 
 export default function Navbar() {
 const [modalOpen, setModalOpen] = useState(false);

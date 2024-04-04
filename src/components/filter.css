@@ -1,0 +1,28 @@
+.results-container {
+    max-height: 300px; /* Set the maximum height for the results container */
+    overflow-y: auto; /* Add vertical scrollbars when necessary */
+  }
+  
+  .result-item {
+    /* Add margin or padding styles for the result items if needed */
+  }
+
+
+  .add-record-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-record-container input {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .add-record-container p {
+    margin-top: 5px;
+  }
+  .table-class {
+    margin: 10px;
+  }
+  

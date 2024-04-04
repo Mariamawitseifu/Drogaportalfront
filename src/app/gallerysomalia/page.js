@@ -140,7 +140,7 @@ export default function Gallerysomalia() {
     .catch(error => {
       console.error('Error:', error);
     });
-}, []);
+}, [token]);
 const [role, setRole] = useState('');
 
 useEffect(() => {

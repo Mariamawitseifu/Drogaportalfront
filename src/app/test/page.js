@@ -72,13 +72,13 @@ export default function Test({ visiblePosts }) {
     if (isBrowser) {
       localStorage.setItem('blogs', JSON.stringify(blogs));
     }
-  }, [blogs]);
+  }, [blogs, isBrowser]);
    
-  useEffect(() => {
-    if (isBrowser) {
-      localStorage.setItem('blogs', JSON.stringify(blogs));
-    }
-  }, [blogs]);
+  // useEffect(() => {
+  //   if (isBrowser) {
+  //     localStorage.setItem('blogs', JSON.stringify(blogs));
+  //   }
+  // }, [blogs, isBrowser]);
 
   useEffect(() => {
     const storedBlogs = localStorage.getItem('blogs');

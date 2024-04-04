@@ -58,7 +58,7 @@ function formatDate(date) {
     if (lastCardRef.current) {
       currentObserver.observe(lastCardRef.current);
     }
-  }, []);
+  }, [handleIntersect]);
 
   const handleLoadMore = async () => {
     const nextPage = Math.ceil(filteredPosts.length / 5) + 1;
@@ -116,7 +116,7 @@ function formatDate(date) {
       setPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
       setIsDeleteClicked(false);
     }
-  }, [isDeleteClicked]); 
+  }, [isDeleteClicked, postId]); 
   return (
     <div
       data-aos="fade-up"
