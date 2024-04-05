@@ -14,8 +14,8 @@ app.prepare().then(() => {
 
         if (pathname === '/src/app/page.js') {
             app.render(req, res, '/src/app/page.js', query);
-        } else if (pathname === '/src/page.js') {
-            app.render(req, res, '/src/page.js', query);
+        } else if (pathname === '/src/app/page.js') {
+            app.render(req, res, '/src/app/page.js', query);
         } else {
             handle(req, res, parsedUrl);
         }
