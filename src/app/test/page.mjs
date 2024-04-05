@@ -56,17 +56,12 @@ export default function Test({ visiblePosts }) {
   }, []);
   
   useEffect(() => {
-   // Perform action here after role state updates
   }, [role]);
   
 //  console.log(role);
   const isBrowser = typeof window !== 'undefined';
-
-  // ...
   
   const [token, setToken] = useState(isBrowser ? localStorage.getItem('token') : null);
-  
-  // ...
   
   useEffect(() => {
     if (isBrowser) {
@@ -74,11 +69,6 @@ export default function Test({ visiblePosts }) {
     }
   }, [blogs, isBrowser]);
    
-  // useEffect(() => {
-  //   if (isBrowser) {
-  //     localStorage.setItem('blogs', JSON.stringify(blogs));
-  //   }
-  // }, [blogs, isBrowser]);
 
   useEffect(() => {
     const storedBlogs = localStorage.getItem('blogs');
@@ -86,10 +76,6 @@ export default function Test({ visiblePosts }) {
       setBlogs(JSON.parse(storedBlogs));
     }
   }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('blogs', JSON.stringify(blogs));
-  // }, [blogs]);
 
   const handlePost = async () => {
      
@@ -112,8 +98,6 @@ export default function Test({ visiblePosts }) {
       );
 
       setPostData(response.data);
-      
-      // Handle response
 
       handleSubmit();
     } catch (error) {
@@ -239,7 +223,6 @@ const Modal = ({
         className="md:w-full w-2/3 lg:w-2/3 lg:h-96 bg-dro_yellow shadow-lg flex flex-col justify-between"
       >
         <div className="">
-          {/* <h2 className="text-2xl px-10 py-6 font-bold mb-1">Blog here</h2> */}
           <div className="relative">
             <div className="card py-6 px-16">
               <label
@@ -262,7 +245,7 @@ const Modal = ({
                   className="absolute top-2 right-2"
                   src={selectedImage}
                   alt="Selected"
-                  style={{ maxWidth: '40px' }}
+                  // style={{ maxWidth: '40px' }}
                 />
               )}
             </div>

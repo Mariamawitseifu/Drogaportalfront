@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
 import Button from "../components/Button";
 import "../components/animation.css";
@@ -25,18 +25,12 @@ function formatPublished_date(dateString) {
   return format(date, 'dd MMM yyyy') 
 }
 
-// Usage
 
 const formattedDate = published_date.slice(0,10);
-
-// usage
 <p>{formattedDate}</p>
 function formatDate(date) {
   return date.slice(0, 10);
 }
-
-// usage
-
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -58,9 +52,9 @@ function formatDate(date) {
     if (lastCardRef.current) {
       currentObserver.observe(lastCardRef.current);
     }
-  }, [handleIntersect]);
+  }, []);
 
-  const handleLoadMore = async () => {
+  const handleLoadMore = useCallback(async () => {
     const nextPage = Math.ceil(filteredPosts.length / 5) + 1;
     try {
       const response = await axios.get(`http://127.0.0.1:8000/api1/posts/?page=${nextPage}`);
@@ -69,7 +63,13 @@ function formatDate(date) {
       console.error(error);
     }
     setLoadMoreFaqs(prev => !prev); // Toggle the loadMoreFaqs state
-  };
+ }, [filteredPosts]);
+//  console.log('Title:', title);
+
+ // Example logging an object
+//  console.log('Post:', post);
+ 
+
   const handleClick = () => {
     setIsOpen(true);
   };
@@ -77,19 +77,13 @@ function formatDate(date) {
   const handleClickload = () => {
     setIsOpenn(true);
   };
-  // const handleIntersect = async (entries) => {
-  //   const entry = entries[0];
-  //   if (entry.isIntersecting) {
-  //      await handleLoadMore();
-  //   }
-  //  }, [handleLoadMore]; // Add any other dependencies here
-   
-  const handleIntersect = async (entries) => {
+
+  const handleIntersect = useCallback(async (entries) => {
     const entry = entries[0];
     if (entry.isIntersecting) {
-       await handleLoadMore();
+      await handleLoadMore();
     }
-   };
+ }, [handleLoadMore]);
 
   const deletePost = async () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this record?");

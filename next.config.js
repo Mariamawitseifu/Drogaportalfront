@@ -3,6 +3,7 @@
  */
 const nextConfig = {
     output: 'export',
+    reactStrictMode: true,
     trailingSlash: true,
     images: {
        domains: ['127.0.0.1'],

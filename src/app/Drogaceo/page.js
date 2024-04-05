@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Drogaceo/drogaceo.css'
+import './drogaceo.css'
 import Image from 'next/image';
 
 

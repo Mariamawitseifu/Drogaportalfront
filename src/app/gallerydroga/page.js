@@ -190,7 +190,7 @@ return (
    <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
      <a href="#">
        <div className="image-container" style={{ width: '100%', height: '200px', overflow:'hidden' }}>
-         <Image className="rounded-t-lg" src={`http://127.0.0.1:8000/media/${image.image}`} height={100} width={100} alt="" />
+         <Image className="rounded-t-lg" src={`http://127.0.0.1:8000/media/${image.image}`} height={300} width={400} alt="" />
        </div>
      </a>
      <div className="p-5">

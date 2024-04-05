@@ -2,7 +2,7 @@
 import Image from "next/image";
 // import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import Drogaceo from "../Drogaceo/page";
+import Drogaceo from "../drogaceo/page";
 // import { Drogaceo } from "../Drogaceo/page";
 import Navbar from "@/components/NavBar";
 // import 'tailwindcss/tailwind.css';

@@ -55,7 +55,7 @@ export default function Drogaema(){
         <div>
      <Navbar/>         
         </div>
-        <div className="relative h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] 2xl:h-[400px]">
+        <div className="relative h-[200px] md:h-[240px] lg:h-[300px] xl:h-[340px] 2xl:h-[400px]">
  <Image
  src="/artboardema.jpg"
  className="absolute inset-0 w-full h-full object-cover"
@@ -77,8 +77,8 @@ export default function Drogaema(){
         <div>
          <Image 
          src= "/webe.png"
-         height={50} 
-         width={50}
+         height={40} 
+         width={40}
          alt="website"/>
   <h1 className="">
   Website
@@ -89,7 +89,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/twittere.png" height={50} width={50} alt="twitter">
+         <Image src="/twittere.png" height={40} width={39} alt="twitter">
   </Image> 
   <h1 className="">
   Twitter
@@ -100,7 +100,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/facebooke.png" height={50} width={50} alt="facebook">
+         <Image src="/facebooke.png" height={40} width={39} alt="facebook">
   </Image> 
   <h1 className="">
   Facebook
@@ -113,7 +113,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/linkedine.png" height={50} width={50} alt="linkedin">
+         <Image src="/linkedine.png" height={40} width={40} alt="linkedin">
   </Image> 
   <h1 className="">
   LinkedIn
@@ -125,16 +125,16 @@ export default function Drogaema(){
      </div>
      </div>
      <div className="px-">
-     <div className="  py-14">
+     <div className="  py-12">
    <a href="https://emaethiopia.com/" className="underline"> https://emaethiopia.com/</a>  
   </div>
      <div className="">
    <a className="underline"> https://twitter.com/DrogaPharm63360</a>  
   </div>
-     <div className=" py-12">
+     <div className=" py-10">
    <a className="underline"> www.pharma.com</a>  
   </div>
-     <div className=" py-4">
+     <div className=" py-">
    <a className="underline"> www.pharma.com</a>  
   </div>
      </div>       
@@ -145,7 +145,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/deskphonee.png" height={50} width={50} alt="desk">
+         <Image src="/deskphonee.png" height={40} width={40} alt="desk">
   </Image> 
   <h1 className="">
   DeskPhone
@@ -157,7 +157,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/telegrame.png" height={50} width={50} alt="tele">
+         <Image src="/telegrame.png" height={40} width={39} alt="tele">
   </Image> 
   <h1 className="">
   Telegram
@@ -169,7 +169,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/whatsappe.png" height={50} width={50} alt="whatsapp">
+         <Image src="/whatsappe.png" height={40} width={40} alt="whatsapp">
   </Image> 
   <h1 className="">
   Whatsapp
@@ -181,7 +181,7 @@ export default function Drogaema(){
      <div className="flex items-center">
        <div className=" flex flex-row">
         <div>
-         <Image src="/telephonee.png" height={50} width={50} alt="tele">
+         <Image src="/telephonee.png" height={40} width={39} alt="tele">
   </Image> 
   <h1 className="">
   Phone No
@@ -195,13 +195,13 @@ export default function Drogaema(){
      <div className=" py-14">
    <a className="underline"> +251 111 71 82 54</a>  
   </div>
-  <div className=" py-2">
+  <div className=" py">
    <a className="underline">https:\\telegram\Ethiopharma</a>  
   </div>
-  <div className=" py-12">
-   <a href="https://api.whatsapp.com/send?phone=251913667537&text=" className="underline">https://api.whatsapp.com/send?phone=251913667537&text=</a>  
+  <div className=" py-8">
+   <a href="https://api.whatsapp.com/send?phone=251913667537&text=" className="underline">https://api.whatsapp.com/send?</a>  
   </div>
-  <div className=" py-">
+  <div className=" py-1">
    <a className="underline"> +251 961 26 00 01</a>  
   </div>
      </div>  

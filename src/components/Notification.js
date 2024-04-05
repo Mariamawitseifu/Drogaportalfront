@@ -37,11 +37,15 @@ const Notification = () => {
 
   const markNotificationsAsRead = async (data) => {
     try {
+      const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken'))?.split('=')[1] ?? '';
       await Promise.all(
         data.map(async (notification) => {
           // Replace with the actual URL of your backend API
           await fetch(`http://127.0.0.1:8000/api1/notifications/mark-as-read/${notification.id}/`, {
             method: 'POST',
+            headers: {
+              'X-CSRFToken': csrfToken, // Include the CSRF token in the request headers
+            },
           });
         })
       );
@@ -56,7 +60,7 @@ const Notification = () => {
 
   useEffect(() => {
     fetchNotifications();
-  }, [fetchNotifications3]);
+  }, [fetchNotifications]);
 
   const handlePopupClose = () => {
     markNotificationsAsRead(notifications);
