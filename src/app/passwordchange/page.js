@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-function Userpass() {
+function Passwordchange() {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -113,4 +113,4 @@ function Userpass() {
     </div>
   );
 }
-export default Userpass;
+export default Passwordchange;
