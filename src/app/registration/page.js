@@ -3,7 +3,19 @@ import axios from 'axios';
 import React, { useState,useEffect } from 'react';
 // import fetch from 'isomorphic-unfetch';
 // import fetch from 'unfetch';
-export default function Registration() {
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
+
+
+const Registration = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+// export default function Registration() {
  const [username, setUsername] = useState('');
  const [password, setPassword] = useState('');
  const [email, setEmail] = useState('');
@@ -251,3 +263,4 @@ useEffect(() => {
     </>
   );
 }
+export default Registration;

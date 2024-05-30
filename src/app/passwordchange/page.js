@@ -1,6 +1,11 @@
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
+
+
 
 function Passwordchange() {
   const [oldPassword, setOldPassword] = useState('');
@@ -8,6 +13,13 @@ function Passwordchange() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
+  // const passwordchange = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
   const handleChange = (e) => {
     if (e.target.name === 'oldPassword') {
       setOldPassword(e.target.value);

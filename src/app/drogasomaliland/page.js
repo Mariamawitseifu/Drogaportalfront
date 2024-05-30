@@ -8,8 +8,19 @@ import Endfooter from "@/components/Endfooter";
 import 'tailwindcss/tailwind.css';
 import { useState, useEffect ,useRef} from "react";
 import Gallerysomalia from "../gallerysomalia/page";
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
-export default function Drogasomaliland(){
+
+const Drogasomaliland = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+// export default function Drogasomaliland(){
    const router = useRouter();
 
    const handleClickG = () => {
@@ -217,3 +228,4 @@ return<>
 </>
 
 }
+export default Drogasomaliland;

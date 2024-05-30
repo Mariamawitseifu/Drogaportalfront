@@ -135,7 +135,7 @@ if (user !== undefined) {
   
   function Buttons({ children }) {
     return (
-      <button className="hover:bg-dro_yellow border bg-dro_white py-3 md:py-4 lg:py-5 px-4 md:px-8">
+      <button className="hover:bg-dro_yellow border bg-dro_white py-4 lg:py-5 px-8">
         {children}
       </button>
     );
@@ -167,10 +167,10 @@ const handlePost = () => {
 }
   return (
     <>
-<div className="relative lg:w-auto bg-dro_yellow md:py-8 sm:py-1">
+<div className="relative lg:w-auto bg-dro_yellow py-8 sm:py-1">
   <header className="text-dro_black body-font relative z-20">
-    <div className=" mx-auto flex flex-wrap md:flex-nowrap lg:gap-72 md:flex-col lg:flex-row items-center">
-      <div className="flex flex-row px-4 md:px-8 py-1">
+    <div className=" mx-auto flex flex-wrap flex-nowrap lg:gap-72flex-col lg:flex-row items-center">
+      <div className="flex flex-row px-8 py-6">
       <Link href="/home">
       <Image
         className="w-16 h-14 md:w-20 md:h-16 lg:w-24 lg:h-20"
@@ -180,28 +180,27 @@ const handlePost = () => {
         height={14}
       />
       </Link>
-        <h1 className="px-3 font-medium md:text-lg sm:text-base lg:text-4xl">
+        <h1 className="px-3 font-medium text-lg  sm:text-base lg:text-4xl">
           Droga Group <span className="font-semibold animate-pulse">Portal</span>
         </h1>
       </div>
-      <div className="flex title-font font-medium items-center mx-auto md:my-0">
-  <nav className="flex flex-row lg:space-x-16 sm:space-x-9 space-x-8 md:space-x-12 w-full bg-dro_yellow px-4 items-center text-base" >
-    <div className="flex space-x-4 md:text-base">
-      <Quicklinks />
-    </div>
-    <Link legacyBehavior href="/userguide">
-      <a className="font-semibold text-base lg:text-lg">Portal User Guide</a>
-    </Link>
-    <ul>
-      <li style={{ position: "relative" }}>
-        <Notification />
-      </li>
-    </ul>
-    <Filter />
-    <>
-      <Circle />
-    </>
-  </nav>
+      <div className="flex font-medium items-center mx-auto my-0">
+      <nav className="flex flex-row lg:space-x-16 sm:space-x-9 gap-x-4 bg-dro_yellow px-4 items-center text-base justify-end">
+ <div className="text-base">
+    <Quicklinks />
+ </div>
+ <Link legacyBehavior href="/userguide">
+    <a className="font-semibold lg:text-lg">Portal User Guide</a>
+ </Link>
+ <ul>
+    <li style={{ position: "relative" }}>
+      <Notification />
+    </li>
+ </ul>
+ <Filter />
+ <Circle />
+</nav>
+
 </div>
            </div>
         </header>

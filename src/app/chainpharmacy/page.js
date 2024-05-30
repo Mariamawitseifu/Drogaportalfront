@@ -8,8 +8,19 @@ import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
 import Image from 'next/image';
 
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
-export default function Chainpharmacy(){
+
+const Chainpharmacy = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+// export default function Chainpharmacy(){
    const [typewriterText, setTypewriterText] = useState('');
 
    useEffect(() => {
@@ -213,3 +224,4 @@ export default function Chainpharmacy(){
    </div>
    </>
 }
+export default Chainpharmacy;

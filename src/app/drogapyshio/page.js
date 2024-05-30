@@ -9,8 +9,19 @@ import { useState, useEffect ,useRef} from "react";
 import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
 import gallerypyhsio from '../gallerypyshio/page';
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
-export default function Drogapyhsio(){
+
+const Drogapyhsio = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+// export default function Drogapyhsio(){
    const router = useRouter();
 
    const handleClickG = () => {
@@ -218,3 +229,4 @@ export default function Drogapyhsio(){
   </>
 
 }
+export default Drogapyhsio;

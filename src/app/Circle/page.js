@@ -5,34 +5,85 @@ import {useState, useEffect ,useRef} from "react";
 import axios from "axios";
 import Homepage from '../page';
 import Image from 'next/image';
+import { sessionStatus } from '@/utils/Auth';
+// import { redirect } from 'next/navigation';
+
+// function ProtectedRoute({ children }) {
+//   const { authenticated } = useAuth();
+
+//   if(!authenticated) {
+//     return <Redirect to="/" />
+//   }
+
+//   return <>{children}</>
+// }
+
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
 
-export default function Circle () {
+const Circle = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+
+// export default function Circle () {
   const [user, setUser] = useState(null)
   const [isOpeen,setIsOpeen]=useState(null)
+
+
+    // useEffect(() => {
+    //   const session = sessionStatus;
+    //   if(!session){
+    //     redirect("/")
+    //   }
+    // }, [])
 
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem("token");
       console.log("Token:", token);
   
-    await axios.post("http://127.0.0.1:8000/api/logout/", null, {
-      headers: {
-        Authorization: `Token ${token}`,
-      },
-    });
-
+      await axios.post("http://127.0.0.1:8000/api/logout/", null, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+  
+      // Clearing all user-related data from local storage
       localStorage.removeItem("token");
       console.log("Token removed from local storage");
   
       localStorage.removeItem("user");
       console.log("User removed from local storage");
   
-      window.location.href = "/homepage";
+      localStorage.removeItem("username"); // Assuming this stores the username
+      console.log("Username removed from local storage");
+  
+      localStorage.removeItem("email"); // Assuming this stores the email
+      console.log("Email removed from local storage");
+  
+      // Adding removal of new items
+      localStorage.removeItem("blogID"); // Assuming this stores the blog ID
+      console.log("Blog ID removed from local storage");
+  
+      localStorage.removeItem("blogs"); // Assuming this stores blog data
+      console.log("Blogs removed from local storage");
+  
+      localStorage.removeItem("role"); // Assuming this stores the user role
+      console.log("Role removed from local storage");
+  
+      window.location.href = "/";
     } catch (error) {
       console.error("Logout error:", error);
     }
   };
+  
+  
     const [username, setUsername] = useState(null);
     useEffect(() => {
         const storedUsername = localStorage.getItem('username'); // Fetch the username from local storage
@@ -84,3 +135,4 @@ return(
     </>
 )
 }
+export default Circle;

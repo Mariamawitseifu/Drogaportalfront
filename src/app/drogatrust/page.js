@@ -8,8 +8,19 @@ import { useState, useEffect ,useRef} from "react";
 import Endfooter from "@/components/Endfooter";
 import Footer from "@/components/Footer";
 import gallerytrust from '../gallerytrust/page';
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
-export default function Drogatrust(){
+
+const Drogatrust = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+// export default function Drogatrust(){
    const router = useRouter();
 
    const handleClickG = () => {
@@ -217,3 +228,4 @@ export default function Drogatrust(){
   </>
 
 }
+export default Drogatrust;

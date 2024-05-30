@@ -3,9 +3,20 @@ import React, { useState, useEffect } from "react";
 import { FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
 import Image from 'next/image';
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
 
-export default function Galleryceo() {
+const Galleryceo = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+
+// export default function Galleryceo() {
  const [selectedImage, setSelectedImage] = useState(null);
  const [images, setImages] = useState([]); // Initialize images as an empty array
  const [uploadedImage, setUploadedImage] = useState(null);
@@ -193,3 +204,4 @@ export default function Galleryceo() {
  </>
 );
      }
+export default Galleryceo;

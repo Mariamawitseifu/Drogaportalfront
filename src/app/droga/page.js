@@ -1,7 +1,21 @@
+"use client"
 import Image from "next/image";
 import Link from 'next/link';
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
-export default function Droga(){
+
+const Droga = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+
+
+// export default function Droga(){
 return<>
 <div>
 <h1 className=" font-semibold text-4xl px-9 py-20 bg-dro_yellow">
@@ -23,5 +37,7 @@ return<>
 </div>
 </div>
 </>
+};
 
-}
+
+export default Droga;

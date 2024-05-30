@@ -7,9 +7,20 @@ import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
 import Typewriter from 'typewriter-effect';
 import { useState, useEffect ,useRef} from "react";
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
 
-export default function Drogarwanda(){
+const Drogarwanda = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+
+// export default function Drogarwanda(){
    const router = useRouter();
    const [typewriterText, setTypewriterText] = useState('');
    const handleClickG = () => {
@@ -215,3 +226,4 @@ export default function Drogarwanda(){
     </>
 
 }
+export default Drogarwanda;

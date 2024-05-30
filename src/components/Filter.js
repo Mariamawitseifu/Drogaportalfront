@@ -108,6 +108,7 @@ const Filter = () => {
         onKeyPress={handleKeyPress}
         placeholder="Search..."
         className="py-2 px-4 rounded-md border focus:outline-none bg-dro_white"
+        style={{ width: '80%' }}
       />
     }
   >

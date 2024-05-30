@@ -4,8 +4,20 @@ import { useState, useEffect } from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 import format from 'date-fns/format';
 import Image from 'next/image';
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
 
-export default function Blog() {
+
+const Blog = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+
+// export default function Blog() {
   const router = useRouter();
   const [id, setId] = useState(null);
   const [post, setPost] = useState(null);
@@ -116,4 +128,4 @@ export default function Blog() {
    </div>
   );
  }
- 
+ export default Blog;

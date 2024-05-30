@@ -1,14 +1,26 @@
 import React from 'react';
 import './drogaceo.css'
 import Image from 'next/image';
-
+ import { isAuthenticated } from "@/utils/Auth";
+  import { redirect } from "next/navigation";
+  import { useLayoutEffect } from "react";
+  
+  
 
 const Drogaceo = () => {
- const IconLink = ({ src, name, link }) => (
+ 
+  // const Chainpharmacy = () => {
+  useLayoutEffect(() => {
+     const isAuth = isAuthenticated;
+     if(!isAuth){
+        redirect('/')
+     }
+  }, [])
+  const IconLink = ({ src, name, link }) => (
    <div className="flex items-center">
      <div className="flex flex-row">
        <div>
-         <Image src={src} height={50} width={50} alt={name} />
+         <Image src= '/ceo.jpg' height={50} width={50} alt={name} />
          <h1 className="">{name}</h1>
        </div>
      </div>

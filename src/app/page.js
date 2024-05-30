@@ -5,6 +5,9 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
 import '/src/app/styles.css';
+// import { useRouter } from 'next/navigation';
+import { sessionStatus } from '@/utils/Auth';
+import { redirect } from 'next/navigation';
 
 export function Loader() {
  return (
@@ -17,7 +20,9 @@ function ChildComponent(props) {
  return <h1>Hello, {props.name}</h1>;
 }
 export default function Home() {
- const [username, setUsername] = useState('');
+ 
+
+const [username, setUsername] = useState('');
  const [password, setPassword] = useState('');
  
  const router = useRouter();
@@ -25,6 +30,17 @@ export default function Home() {
  const [loading, setLoading] = useState(false);
  const [error, setError] = useState('');
 
+//  const router = useRouter();
+// const [redirect, setRedirect] = useState(false);
+
+// const login = () => {
+//   setRedirect(true);
+// }
+
+// if(redirect) {
+//   router.push('/');
+//   setRedirect(false);
+// }
  const handleSignIn = async () => {
   try {
     setLoading(true);

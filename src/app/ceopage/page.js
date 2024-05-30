@@ -11,7 +11,19 @@ import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
 // import '../Drogaceo/drogaceo.css'
 
-export default function Ceopage (){
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
+
+
+const Ceopage = () => {
+useLayoutEffect(() => {
+   const isAuth = isAuthenticated;
+   if(!isAuth){
+      redirect('/')
+   }
+}, [])
+// export default function Ceopage (){
    const router = useRouter();
 
    const handleClickG = () => {
@@ -82,3 +94,4 @@ export default function Ceopage (){
   <Endfooter/>
   </>
 }
+export default Ceopage;
