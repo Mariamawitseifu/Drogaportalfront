@@ -8,7 +8,7 @@ import 'tailwindcss/tailwind.css';
 import { useState, useEffect ,useRef} from "react";
 import Footer from "./Footer";
 import { imageOptimizer } from "next/dist/server/image-optimizer";
-
+import Endfooter from "./Endfooter";
 export default function Ceocard(){
    const router = useRouter();
 
