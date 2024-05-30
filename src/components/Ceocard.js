@@ -7,9 +7,6 @@ import Navbar from "./NavBar";
 import 'tailwindcss/tailwind.css';
 import { useState, useEffect ,useRef} from "react";
 import Footer from "./Footer";
-import Endfooter from "./Endfooter";
-// import Drogaceo from "@/app/Drogaceo/page";
-// import 'app/drogaceo/drogaceo.css'
 import { imageOptimizer } from "next/dist/server/image-optimizer";
 
 export default function Ceocard(){

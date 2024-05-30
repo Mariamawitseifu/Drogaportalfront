@@ -6,18 +6,6 @@ import axios from "axios";
 import Homepage from '../page';
 import Image from 'next/image';
 import { sessionStatus } from '@/utils/Auth';
-// import { redirect } from 'next/navigation';
-
-// function ProtectedRoute({ children }) {
-//   const { authenticated } = useAuth();
-
-//   if(!authenticated) {
-//     return <Redirect to="/" />
-//   }
-
-//   return <>{children}</>
-// }
-
 import { isAuthenticated } from "@/utils/Auth";
 import { redirect } from "next/navigation";
 import { useLayoutEffect } from "react";

@@ -8,8 +8,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import Quicklinks from './QuickLinks';
 import Filter from './Filter';
-import Circle from '@/app/circle/page';
-
+// import Circle from '../src/app/circle/page';
 export default function Navbar() {
 const [modalOpen, setModalOpen] = useState(false);
 const [searchQuery, setSearchQuery] = useState('');
@@ -198,7 +197,7 @@ const handlePost = () => {
     </li>
  </ul>
  <Filter />
- <Circle />
+ {/* <Circle /> */}
 </nav>
 
 </div>

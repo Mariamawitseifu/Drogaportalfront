@@ -1,20 +1,14 @@
 "use client"
 import Image from "next/image";
-// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import Drogaceo from "../drogaceo/page";
-// import { Drogaceo } from "../Drogaceo/page";
 import Navbar from "@/components/NavBar";
-// import 'tailwindcss/tailwind.css';
 import { useState, useEffect ,useRef} from "react";
 import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
-// import '../Drogaceo/drogaceo.css'
-
 import { isAuthenticated } from "@/utils/Auth";
 import { redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
-
+import Drogaceo from "../drogaceo/page";
 
 const Ceopage = () => {
 useLayoutEffect(() => {
