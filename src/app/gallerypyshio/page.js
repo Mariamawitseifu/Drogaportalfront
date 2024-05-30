@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
 
 
-const gallerypyhsio = () => {
+const Gallerypyhsio = () => {
 useLayoutEffect(() => {
    const isAuth = isAuthenticated;
    if(!isAuth){
@@ -216,4 +216,4 @@ useEffect(() => {
  </>
 );
      }
-export default gallerypyhsio;
+export default Gallerypyhsio;

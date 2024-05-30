@@ -1,29 +1,25 @@
-"use client"
+'use client'
 import Image from "next/image"
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-// import Gallery from "../gallery/page";
 import Navbar from "@/components/NavBar";
 import 'tailwindcss/tailwind.css';
-import { useState, useEffect ,useRef} from "react";
+import { useState, useEffect ,useRef, useLayoutEffect} from "react";
 import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
-import gallerypyhsio from '../gallerypyshio/page';
+import Gallerypyhsio from '../gallerypyshio/page';
 import { isAuthenticated } from "@/utils/Auth";
 import { redirect } from "next/navigation";
-import { useLayoutEffect } from "react";
 
 
 const Drogapyhsio = () => {
-useLayoutEffect(() => {
-   const isAuth = isAuthenticated;
-   if(!isAuth){
-      redirect('/')
-   }
-}, [])
-// export default function Drogapyhsio(){
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated;
+    if(!isAuth){
+        redirect('/')
+    }
+  }, []);
    const router = useRouter();
-
    const handleClickG = () => {
      router.push('/gallerypyshio');
    };

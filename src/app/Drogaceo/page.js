@@ -1,9 +1,10 @@
+'use client'
 import React from 'react';
 import './drogaceo.css'
 import Image from 'next/image';
- import { isAuthenticated } from "@/utils/Auth";
-  import { redirect } from "next/navigation";
-  import { useLayoutEffect } from "react";
+import { isAuthenticated } from "@/utils/Auth";
+import { redirect } from "next/navigation";
+import { useLayoutEffect } from "react";
   
   
 

@@ -1,20 +1,18 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { FiTrash2 } from 'react-icons/fi';
 import axios from "axios";
 import Image from 'next/image';
 import { isAuthenticated } from "@/utils/Auth";
 import { redirect } from "next/navigation";
-import { useLayoutEffect } from "react";
 
-
-const galleryema = () => {
-useLayoutEffect(() => {
-   const isAuth = isAuthenticated;
-   if(!isAuth){
-      redirect('/')
-   }
-}, [])
+const Galleryema = () => {
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect('/');
+    }
+  }, [])
 
 // export default function Galleryema() {
  const [selectedImage, setSelectedImage] = useState(null);

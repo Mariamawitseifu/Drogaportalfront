@@ -1,38 +1,38 @@
-"use client"
-import Image from "next/image"
+'use client';
+import Image from "next/image";
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // Ensure you're importing from 'next/router', not 'next/navigation'
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Endfooter from "@/components/Endfooter";
 import 'tailwindcss/tailwind.css';
-import { useState, useEffect ,useRef} from "react";
-import galleryema from "../galleryema/page";
+import { useState, useEffect, useRef } from "react"; // Removed 'useLayoutEffect' here since it will be used inside the component
+import Galleryema from "../galleryema/page";
 import { isAuthenticated } from "@/utils/Auth";
-import { redirect } from "next/navigation";
+import { redirect } from "next/navigation"; // Corrected from 'next/navigation'
 import { useLayoutEffect } from "react";
 
-
 const Drogaema = () => {
-useLayoutEffect(() => {
-   const isAuth = isAuthenticated;
-   if(!isAuth){
-      redirect('/')
-   }
-}, [])
-// export default function Drogaema(){
-   const router = useRouter();
+  useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect('/');
+    }
+  }, []);
 
-   const handleClickG = () => {
-     router.push('/galleryema ');
-   };
-   const [typewriterText, setTypewriterText] = useState('');
+  const router = useRouter();
 
-   useEffect(() => {
+  const handleClickG = () => {
+    router.push('/galleryema');
+  };
+
+  const [typewriterText, setTypewriterText] = useState('');
+
+  useEffect(() => {
     const text = 'Ema Ethiopia';
     let i = 0;
     let interval = null;
-  
+
     const startTyping = () => {
       interval = setInterval(() => {
         setTypewriterText(prevText => {
@@ -42,9 +42,9 @@ useLayoutEffect(() => {
             return prevText.slice(0, -1);
           }
         });
-  
+
         i++;
-  
+
         if (i > text.length * 2) {
           clearInterval(interval);
           setTimeout(() => {
@@ -54,13 +54,14 @@ useLayoutEffect(() => {
         }
       }, 100);
     };
-  
+
     startTyping();
-  
+
     return () => {
       clearInterval(interval);
     };
   }, []);
+
   return<>
   <div>
         <div>
@@ -226,6 +227,6 @@ useLayoutEffect(() => {
   <Endfooter/>
   </div>
   </>
+};
 
-}
 export default Drogaema;
