@@ -1,6 +1,4 @@
 "use client"
-// This line should be removed as it's incorrect syntax for importing modules in JavaScript.
-// The correct way to import modules in JavaScript is shown below:
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Corrected import path
 import { sessionStatus } from '@/utils/Auth';
@@ -14,7 +12,7 @@ function withAuth(Component) {
       if (!session) {
         router.push('/'); // Redirect to home or login page
       }
-    }, [session]); // Dependency array includes session to re-run effect if session changes
+    }, [session, router]); // Dependency array includes session to re-run effect if session changes
 
     if (!session) {
       return null; // Optionally, return a loading indicator or similar placeholder UI

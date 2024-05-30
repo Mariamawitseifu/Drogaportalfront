@@ -12,7 +12,8 @@ export default function Home({ title }) {
  const [currentPage, setCurrentPage] = useState(1);
  const numVisiblePosts = 4;
 
- const fetchData = async () => {
+ useEffect(() => {
+  const fetchData = async () => {
     try {
       const response = await fetch(`http://127.0.0.1:8000/api1/posts?page=${currentPage}`);
       const data = await response.json();
@@ -24,8 +25,8 @@ export default function Home({ title }) {
           const lastFetchedPage = prevVisiblePosts.length / numVisiblePosts;
           if (lastFetchedPage === currentPage - 1) {
             const uniqueIds = new Set(prevVisiblePosts.map(post => post.id));
-            const newPosts = data.filter(post => !uniqueIds.has(post.id));
-            return [...prevVisiblePosts, ...newPosts];
+            const newPosts = data.filter(post =>!uniqueIds.has(post.id));
+            return [...prevVisiblePosts,...newPosts];
           } else {
             return data;
           }
@@ -34,11 +35,10 @@ export default function Home({ title }) {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
- };
+  };
 
- useEffect(() => {
-    fetchData();
- }, [currentPage, fetchData]);
+  fetchData();
+}, [currentPage]); // Removed fetchData from dependencies
 
  const handleLoadMoreClick = () => {
     setCurrentPage(prevPage => prevPage + 1);

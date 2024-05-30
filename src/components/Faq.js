@@ -52,7 +52,7 @@ function formatDate(date) {
     if (lastCardRef.current) {
       currentObserver.observe(lastCardRef.current);
     }
-  }, []);
+  }, [handleIntersect]);
 
   const handleLoadMore = useCallback(async () => {
     const nextPage = Math.ceil(filteredPosts.length / 5) + 1;

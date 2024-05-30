@@ -53,7 +53,7 @@ const Filter = () => {
  } else {
   setResults({post_results: [], record_results: []});
  }
- }, [query]);
+ }, [query, results.post_results]);
 
  const handleInputChange = (event) => {
  setQuery(event.target.value);
