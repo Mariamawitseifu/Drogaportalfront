@@ -8,7 +8,7 @@ import Endfooter from "@/components/Endfooter";
 import { isAuthenticated } from "@/utils/Auth";
 import { redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
-import Drogaceo from "../drogaceo/page";
+// import Drogaceo from "../drogaceo/page";
 
 const Ceopage = () => {
 useLayoutEffect(() => {
@@ -78,7 +78,7 @@ useLayoutEffect(() => {
 </div>
   </div>
  <div className=" px-40 py-10 center-component">
-  <Drogaceo/>
+  {/* <Drogaceo/> */}
  </div>
   <div>
   <button className=" font-semibold text-2xl py-10 px-8 animate-bounce"onClick={handleClickG}> Picture Gallery
